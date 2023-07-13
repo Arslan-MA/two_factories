@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body style="text-align: center;
+font-size: 20px;">
+    <h1>«Две палочки Твикс»</h1>
+    <div style="display: grid;
+    grid-template-columns: repeat(2, 1fr);">
+        <div style="display: grid;
+        justify-content: center;
+        padding: 20px;">
+            <h2>Factory № 1</h2>
+            {% for product_f1 in products_1 %}
+            <div style="border: 3px solid;
+            border-radius: 20px;
+            font-size: 20px;
+            width: 480px;
+            margin-top: 20px;">
+                <p><b>Name:</b> {{ product_f1.name }}</p>
+                <p><b>Category:</b> {{ product_f1.category }}</p>
+                <p><b>Price:</b> {{ product_f1.price }}</p>
+                <p><b>Availability:</b> {{ product_f1.availability }}</p>
+                <a href="{{ product_f1.get_absolute_url }}">
+                    <button type="submit" style="font-size: 18px;
+                    margin-bottom: 20px;">Подробнее</button>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <div style="display: grid;
+        justify-content: center;
+        padding: 20px;">
+            <h2>Factory № 2</h2>
+            {% for product_f2 in products_2 %}
+            <div style="border: 3px solid;
+            border-radius: 20px;
+            font-size: 20px;
+            width: 480px;
+            margin-top: 20px;">
+                <p><b>Name:</b> {{ product_f2.name }}</p>
+                <p><b>Category:</b> {{ product_f2.category }}</p>
+                <p><b>Price:</b> {{ product_f2.price }}</p>
+                <p><b>Availability:</b> {{ product_f2.availability }}</p>
+                <a href="{% url 'factory_2:post' product_f2.pk %}">
+                    <button type="submit" style="font-size: 18px;
+                    margin-bottom: 20px;">Подробнее</button>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
